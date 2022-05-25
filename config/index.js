@@ -10,12 +10,13 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    //此处配置跨域支持
     proxyTable: {
       '/api': {
         target: 'http://localhost:8443',
         changeOrigin: true,
         pathRewrite: {
-          '^/api':''
+          '^/api':'/'
         }
       }
     },

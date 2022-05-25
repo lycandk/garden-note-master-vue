@@ -15,6 +15,9 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+/** 前端拦截器-前置全局守卫
+ * 钩子函数及在某些时机会被调用的函数。这里我们使用 router.beforeEach()，意思是在访问每一个路由前调用。
+ */
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
     if (store.state.user.username) {
@@ -35,6 +38,7 @@ new Vue({
   el: '#app',
   render: h => h(App),
   router,
+  // store即store/index.js里的store
   store,
   components: { App },
   template: '<App/>'
